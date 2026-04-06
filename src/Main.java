@@ -6,6 +6,8 @@ public class Main {
         System.out.println("Library Management System Started");
 
         Library lib = new Library();
+        Member m1 = new StudentMember(9081, "Debarghya", "CSE-IOT");
+        m1.displayMember();
 
         try {
             lib.issueBook(1);

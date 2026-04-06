@@ -1,5 +1,4 @@
 public class Member {
-
     protected int memberId;
     protected String name;
 
