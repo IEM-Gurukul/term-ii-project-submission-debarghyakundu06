@@ -28,34 +28,34 @@ public class Library {
     }
 
     // Issue book
-    public void issueBook(int id) {
-        for (Book b : books) {
-            if (b.getId() == id) {
-                if (!b.isIssued()) {
-                    b.setIssued(true);
-                    System.out.println("Book issued successfully.");
-                } else {
-                    System.out.println("Book already issued.");
-                }
-                return;
+    public void issueBook(int id) throws LibraryException {
+    for (Book b : books) {
+        if (b.getId() == id) {
+            if (!b.isIssued()) {
+                b.setIssued(true);
+                System.out.println("Book issued successfully.");
+            } else {
+                throw new LibraryException("Book already issued.");
             }
+            return;
         }
-        System.out.println("Book not found.");
     }
+    throw new LibraryException("Book not found.");
+}
 
     // Return book
-    public void returnBook(int id) {
-        for (Book b : books) {
-            if (b.getId() == id) {
-                if (b.isIssued()) {
-                    b.setIssued(false);
-                    System.out.println("Book returned successfully.");
-                } else {
-                    System.out.println("Book was not issued.");
-                }
-                return;
+    public void returnBook(int id) throws LibraryException {
+    for (Book b : books) {
+        if (b.getId() == id) {
+            if (b.isIssued()) {
+                b.setIssued(false);
+                System.out.println("Book returned successfully.");
+            } else {
+                throw new LibraryException("Book was not issued.");
             }
+            return;
         }
-        System.out.println("Book not found.");
     }
+    throw new LibraryException("Book not found.");
+}
 }
